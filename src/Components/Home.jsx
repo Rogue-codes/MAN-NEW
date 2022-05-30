@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import bg from '../Assets/bg.jpeg'
 import logo2 from '../Assets/l5.jpeg'
-import logo4 from '../Assets/nig.gif'
-import vec from '../Assets/vector.jpg'
+import vec from '../Assets/vector.webp'
 import map from '../Assets/map.jpeg'
 import AnimatedText from 'react-animated-text-content';
 import CarouselComponent from './CarouselComponent';
@@ -15,7 +14,15 @@ import Footer from './Footer'
 import Nav from './Nav'
 import Typicall from './Typicall'
 
-
+const Loader = styled.div`
+    width: 100%;
+    height: 100vh;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+`
 const Container = styled.div`
     width: 100%;
     min-height: 100vh;
@@ -80,6 +87,7 @@ const First = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 5%;
+    height: 150vh;
 }
     width: 100%;
     height: 100vh;
@@ -115,7 +123,7 @@ const Left = styled.div`
 const Right = styled.div`
     @media (max-width:480px) {
         width: 100%;
-        height: 20vh;
+        height: 50vh;
     }
     width: 40%;
     border-radius: 12px;
@@ -203,7 +211,7 @@ const CoreValues = styled.h1`
     font-family: 'Lato', sans-serif;
     justify-content: center;
     align-items: center;
-    font-size: 3vw;
+    font-size: 2vw;
     margin-bottom: 5%;
     font-weight: 800;
     color: #03030c;
@@ -215,7 +223,7 @@ const Second = styled.div`
     width: 95%;
     margin:auto;
     height: 100vh;
-    background:  linear-gradient(90deg, #0e0215ca 0%, #170101cf 32%, #0f140dc9 100%),url(${logo2})center center fixed;
+    background:  linear-gradient(90deg, #0e0215ca 0%, #170101cf 32%, #0f140dc9 100%),url(${logo2}) center fixed;
     background-size: cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
@@ -255,9 +263,9 @@ const ThirdSEction = styled.div`
         @media (max-width:480px) {
             width: 95%;
         }
-        width: 25%;
+        width: 30%;
         height: 100%;
-        background: #03030c;
+        background: #10040d;
         color: #fff;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         display: flex;
@@ -295,6 +303,10 @@ const FourthSection = styled.div`
     -o-background-size:cover;
 `
 const Mandate = styled.div`
+        @media (max-width:480px) {
+           height: auto;
+           padding: 2%;
+        }
     width: 100%;
     height: 80vh;
     background: #03030ccd;
@@ -306,6 +318,9 @@ const Mandate = styled.div`
     align-items: center;
     gap: 5%;
     p{
+        @media (max-width:480px) {
+            font-size: 1.1rem;
+        }
         font-size: 1.5vw;
         font-family: 'Lato', sans-serif;
         line-height: 30px;
@@ -317,14 +332,17 @@ const Head3 = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: 900;
     text-align: center;
-    color: #03030c;
+    color: #10040d;
     font-family: 'Lato', sans-serif;
 `
 
 const Btn =styled.button`
+        @media (max-width:480px) {
+            font-size: 1.2rem;
+        }
     margin-top: 5%;
     margin-left: 50%;
     transform: translate(-50%, -50%);
@@ -337,8 +355,8 @@ a{
     font-size: 18px;
     font-family: sans-serif;
     text-decoration: none;
-    color: #03030c;
-    border: 1px solid #03030c;
+    color: #10040d;
+    border: 1px solid #10040d;
     letter-spacing: 2px;
     text-align: center;
     position: relative;
@@ -355,7 +373,7 @@ a:after{
   left: 0;
   width: 0;
   height: 100%;
-  background: #03030c;
+  background: #10040d;
   transition: all .35s;
 }
 a:hover{
@@ -372,10 +390,10 @@ const Locate = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-family: 'Lato', sans-serif;
     font-weight: 800;
-    color: #03030c;
+    color: #10040d;
     margin-bottom: 5%;
 `
 
@@ -388,10 +406,10 @@ const FifthSection = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 2%;
-    background: linear-gradient(90deg, #0e0215a1 0%, #1d1b1ba3 32%, #14110da6 100%),url(${map})center center fixed;
+    background: linear-gradient(90deg, #0e0215a1 0%, #1d1b1ba3 32%, #14110da6 100%),url(${map}) center fixed;
     background-size: cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
@@ -399,13 +417,22 @@ const FifthSection = styled.div`
 `
 const FifthLeft = styled.div`
     @media (max-width:480px) {
-        width: 100%;
+        width: 70%;
+        height: 100vh;
+        gap: 2%;
     }
-    width: 50%;
+    width: 100%;
+    height: 90%;
     padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
     h1{
         @media (max-width:480px) {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            text-align: center;
         }
         font-size: 2.5vw;
         font-weight: 900;
@@ -420,6 +447,7 @@ const FifthLeft = styled.div`
         line-height: 40px;
         font-size:  1.5vw;
         color: #fff;
+        text-align: center;
     }
     button{
         @media (max-width:480px) {
@@ -428,7 +456,7 @@ const FifthLeft = styled.div`
             height: 6vh;
         }
         height: 8vh;
-        width: 30%;
+        width: 20%;
         font-size: 1.3vw;
         border: none;
         border-radius: 5px;
@@ -436,20 +464,11 @@ const FifthLeft = styled.div`
         color: #fff;
         transition: all .5s linear;
         &:hover{
-            background:#03030c;
+            background:#10040d;
         }
     }
 `
-const FifthRight = styled.div`
-    @media (max-width:480px) {
-        display: none;
-    }
-    width: 50%;
-    height: 100%;
-    background: url(${logo4});
-    background-size: contain;
-    background-repeat: no-repeat;
-`
+
 const BeforeFourth = styled.div`
     @media (max-width:480px) {
         flex-direction: column;
@@ -528,10 +547,10 @@ const Bleft = styled.div`
             font-size:1.2vw;
             border: none;
             border-radius: 5px;
-            color: #03030c;
+            color: #10040d;
             transition: all .5s linear;
             &:hover{
-                background: #03030c;
+                background: #10040d;
                 color: #fff;
             }
         }
@@ -546,174 +565,191 @@ function Home() {
     const [modalShow, setModalShow] = React.useState(false);
     const [modalShow2, setModalShow2] = React.useState(false);
     const [modalShow3, setModalShow3] = React.useState(false);
+
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+          setLoading(false)
+        },3000)
+      },[])
   return (
-    <Container>
-        <Nav/>
-        <Section>
-        <First>
-            <Left>
-                <h1>
-                    The Manufacturers Association of Nigeria (MAN)
-                </h1>
+      <>
+          {
+        loading ? (
+        <Loader>
+            <img src="/spinner.gif" alt=''></img>
+        </Loader>
+        ) : (
+            <Container>
+            <Nav/>
+            <Section>
+            <First>
+                <Left>
+                    <h1>
+                        The Manufacturers Association of Nigeria (MAN)
+                    </h1>
+                    <p>
+                        Promoting and protecting the manaufacturers collective Interest, and creating sustainable value for our stakeholders
+                    </p>
+                </Left>
+                <Right>
+                    <p><Typicall/></p>
+                </Right>
+                <Dropdwn>
+                    <a href="#second">
+                        <svg class="arrows">
+                        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                        </svg>
+                    </a>
+                </Dropdwn>
+            </First>
+            </Section>
+            <CoreValues>
+                OUR CORE VALUES
+            </CoreValues>
+    
+            <Second id='second'>
+              <CarouselComponent/>
+            </Second>
+    
+            <Meet>
+                The Executive Members
+            </Meet>
+    
+            <ThirdSEction>
+                <div className="card" onClick={() => setModalShow(true)}>
+                    <div className="top">
+                        <img src="/SEGUN.jpg" alt="" />
+                    </div>
+                    <div className="mid">  
+                        <p><b>SEGUN AJAYI-KADIR, mni</b> </p>
+                    </div>
+                    <div className="bottom">
+                        <p>DIRECTOR GENERAL</p>
+                    </div>
+                </div>
+    
+                <div className="card" onClick={() => setModalShow2(true)}>
+                    <div className="top">
+                        <img src="/pres.png" alt="" />
+                    </div>
+                    <div className="mid">  
+                        <p><b>Engr. Mansur Ahmed</b></p>
+                    </div>
+                    <div className="bottom">
+                        <p>PRESIDENT</p>
+                    </div>
+                </div>
+    
+                <div className="card" onClick={() => setModalShow3(true)}>
+                    <div className="top">
+                        <img src="/Rev.jpg" alt="" />
+                    </div>
+                    <div className="mid">  
+                        <p><b>Rev. Isaac Adefemi Agoye</b></p>
+                    </div>
+                    <div className="bottom">
+                        <p>National Treasurer</p>
+                    </div>
+                </div>
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+    
+                <MyVerticallyCenteredModal2
+                    show={modalShow2}
+                    onHide={() => setModalShow2(false)}
+                />
+    
+                <MyVerticallyCenteredModal3
+                    show={modalShow3}
+                    onHide={() => setModalShow3(false)}
+                />
+            </ThirdSEction>
+    
+            <BeforeFourth>
+                <Bleft>
+                    <figure>
+                        <img src='/engine1.jpeg' alt="n/a" />
+                    </figure>
+                    <div className="overlay">
+                        <h3>Services</h3>
+                        <p>We are    "... the Manufacturers’ Solution Hub"</p>
+                        <button>What we offer</button>
+                    </div>        
+                </Bleft>
+                <Bleft>
+                    <figure>
+                        <img src='/engine2.jpeg' alt="n/a" />
+                    </figure>
+                    <div className="overlay">
+                        <h3>Join Us!</h3>
+                        <p>Come join the league of Manufacturers with credibility in Nigeria!</p>
+                        <button>Register</button>
+                    </div>
+                </Bleft>
+            </BeforeFourth>
+    
+            <Locate>
+                OUR LOCATION
+            </Locate>
+    
+            <FifthSection>
+              <FifthLeft>
+                <h1>The Association has one National Secretariat</h1>
                 <p>
-                    Promoting and protecting the manaufacturers collective Interest, and creating sustainable value for our stakeholders
+                    <AnimatedText
+                        type="words" // animate words or chars
+                        animation={{
+                            x: '200px',
+                            y: '-20px',
+                            scale: 1.1,
+                            ease: 'ease-in-out',
+                        }}
+                        animationType="float"
+                        interval={0.06}
+                        duration={0.8}
+                        tag="p"
+                        className="animated-paragraph"
+                        includeWhiteSpaces
+                        threshold={0.1}
+                        rootMargin="20%"
+                        >
+                            The National Secretariat of MAN is headed by a Director General, who is the Chief Executive Officer. Assisted by a complement of staff, the Director General executes on a daily basis, the policy decisions/directives of the National Coucil. The Secretariat is designed and geared to provide specialized services to individual members as well as groups, covering major areas of the manufacturing operations.
+                    </AnimatedText>
                 </p>
-            </Left>
-            <Right>
-                <p><Typicall/></p>
-            </Right>
-            <Dropdwn>
-                <a href="#second">
-                    <svg class="arrows">
-                    <path class="a1" d="M0 0 L30 32 L60 0"></path>
-                    <path class="a2" d="M0 20 L30 52 L60 20"></path>
-                    <path class="a3" d="M0 40 L30 72 L60 40"></path>
-                    </svg>
-                </a>
-            </Dropdwn>
-        </First>
-        </Section>
-        <CoreValues>
-            OUR CORE VALUES
-        </CoreValues>
+                <button>View Locations</button> 
+              </FifthLeft>
+            </FifthSection>
+    
+            <FourthSection data-aos="fade-up" data-aos-duration="3000">
+                <Head3>Our Mandate</Head3>
+                <Mandate>
+                    <p>
+                        Manufacturers Association of Nigeria (MAN) receives its mandate from the National Council, fourteen (14) Branch Councils across the country, and ten (10) Sectoral Groups. In addition, five (5) standing committees, nine (9) Ad-Hoc Committee and seventy-six (76) Subsectoral Groups.
+                    </p>
+                    <p>
+                        This engagement process reaches over 3000 MAN members who have a direct say in what we do and how we do it, from renewing our work strategies to discussing the key business issues of the day and re-tooling our influence.
+                    </p>
+                    <p>
+                        Each of our national council and branch council members are elected to a term of office. Our standing committee members are invited to join voluntarily based on their sector experience and technical expertise.
+                    </p>
+                </Mandate>
+                <Btn><Link to='/'><span>View More</span></Link></Btn>
+            </FourthSection>
+            
+            <Footer/>
+        </Container>
+        )
+    }
+      </>
 
-        <Second id='second'>
-          <CarouselComponent/>
-        </Second>
 
-        <Meet>
-            The Executive Members
-        </Meet>
-
-        <ThirdSEction>
-            <div className="card" onClick={() => setModalShow(true)}>
-                <div className="top">
-                    <img src="/SEGUN.jpg" alt="" />
-                </div>
-                <div className="mid">  
-                    <p><b>SEGUN AJAYI-KADIR, mni</b> </p>
-                </div>
-                <div className="bottom">
-                    <p>DIRECTOR GENERAL</p>
-                </div>
-            </div>
-
-            <div className="card" onClick={() => setModalShow2(true)}>
-                <div className="top">
-                    <img src="/pres.png" alt="" />
-                </div>
-                <div className="mid">  
-                    <p><b>Engr. Mansur Ahmed</b></p>
-                </div>
-                <div className="bottom">
-                    <p>PRESIDENT</p>
-                </div>
-            </div>
-
-            <div className="card" onClick={() => setModalShow3(true)}>
-                <div className="top">
-                    <img src="/Rev.jpg" alt="" />
-                </div>
-                <div className="mid">  
-                    <p><b>Rev. Isaac Adefemi Agoye</b></p>
-                </div>
-                <div className="bottom">
-                    <p>National Treasurer</p>
-                </div>
-            </div>
-            <MyVerticallyCenteredModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
-
-            <MyVerticallyCenteredModal2
-                show={modalShow2}
-                onHide={() => setModalShow2(false)}
-            />
-
-            <MyVerticallyCenteredModal3
-                show={modalShow3}
-                onHide={() => setModalShow3(false)}
-            />
-        </ThirdSEction>
-
-        <BeforeFourth>
-            <Bleft>
-                <figure>
-                    <img src='/engine1.jpeg' alt="n/a" />
-                </figure>
-                <div className="overlay">
-                    <h3>Services</h3>
-                    <p>We are    "... the Manufacturers’ Solution Hub"</p>
-                    <button>What we offer</button>
-                </div>        
-            </Bleft>
-            <Bleft>
-                <figure>
-                    <img src='/engine2.jpeg' alt="n/a" />
-                </figure>
-                <div className="overlay">
-                    <h3>Join Us!</h3>
-                    <p>Come join the league of Manufacturers with credibility in Nigeria!</p>
-                    <button>Register</button>
-                </div>
-            </Bleft>
-        </BeforeFourth>
-
-        <Locate>
-            OUR LOCATION
-        </Locate>
-
-        <FifthSection>
-          <FifthLeft>
-            <h1>The Association has one National Secretariat</h1>
-            <p>
-                <AnimatedText
-                    type="words" // animate words or chars
-                    animation={{
-                        x: '200px',
-                        y: '-20px',
-                        scale: 1.1,
-                        ease: 'ease-in-out',
-                    }}
-                    animationType="float"
-                    interval={0.06}
-                    duration={0.8}
-                    tag="p"
-                    className="animated-paragraph"
-                    includeWhiteSpaces
-                    threshold={0.1}
-                    rootMargin="20%"
-                    >
-                        The National Secretariat of MAN is headed by a Director General, who is the Chief Executive Officer. Assisted by a complement of staff, the Director General executes on a daily basis, the policy decisions/directives of the National Coucil. The Secretariat is designed and geared to provide specialized services to individual members as well as groups, covering major areas of the manufacturing operations.
-                </AnimatedText>
-            </p>
-            <button>View Locations</button> 
-          </FifthLeft>
-
-          <FifthRight>
-
-          </FifthRight>
-        </FifthSection>
-
-        <FourthSection data-aos="fade-up" data-aos-duration="3000">
-            <Head3>Our Mandate</Head3>
-            <Mandate>
-                <p>
-                    Manufacturers Association of Nigeria (MAN) receives its mandate from the National Council, fourteen (14) Branch Councils across the country, and ten (10) Sectoral Groups. In addition, five (5) standing committees, nine (9) Ad-Hoc Committee and seventy-six (76) Subsectoral Groups.
-                </p>
-                <p>
-                    This engagement process reaches over 3000 MAN members who have a direct say in what we do and how we do it, from renewing our work strategies to discussing the key business issues of the day and re-tooling our influence.
-                </p>
-                <p>
-                    Each of our national council and branch council members are elected to a term of office. Our standing committee members are invited to join voluntarily based on their sector experience and technical expertise.
-                </p>
-            </Mandate>
-            <Btn><Link to='/'><span>View More</span></Link></Btn>
-        </FourthSection>
-        
-        <Footer/>
-    </Container>
   )
 }
 

@@ -4,8 +4,8 @@ import AnimatedText from 'react-animated-text-content';
 
 const Foot = styled.footer`
     width: 100%;
-    height: 85vh;
-    background:#03030c;
+    height: 75vh;
+    background:#10040d;
     margin-top: 5%;
     padding: 2%;
 `
@@ -20,7 +20,7 @@ const Top = styled.div`
 `
 const Bottom = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
     align-items: center;
     flex-direction: column;
     color: #fff;

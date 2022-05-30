@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Navi = styled.nav`
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     display: flex;
     justify-content: space-between;
     padding: 2%;
@@ -31,7 +31,7 @@ const Mid = styled.div`
         font-size: 1.3vw;
         font-weight: 500;
         font-family: 'Roboto Flex', sans-serif;
-        color: #6b8c10;
+        color: #fff;
         transition: all .5s linear;
         &:hover{
             color: #6b8c10;
@@ -69,9 +69,9 @@ function Nav() {
     window.addEventListener('scroll', changeBg)
 
   return (
-    <Navi bgc={ bg ? '#fff' : 'transparent'}>
+    <Navi bgc={ bg ? '#10040d' : 'transparent'}>
         <Logo>
-            <img src="/logo.png" alt="" width='100' height='50' />
+            <img src="/logo.png" alt="" width='200' height='80' />
         </Logo>
         <Mid>
             <Link to='/' cl={ bg ? '#fff' : '#03030c'}>About Us</Link>
