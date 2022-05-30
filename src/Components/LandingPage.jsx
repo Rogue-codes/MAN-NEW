@@ -18,7 +18,7 @@ const Container = styled.div`
         top: 0;
         width: 100%;
         height: 100%;
-        background: #000000c1;
+        background: #2a29294b;
         z-index: 10;
     }
     span{
