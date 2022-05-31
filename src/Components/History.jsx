@@ -84,6 +84,10 @@ const SecondContainer = styled.div`
     height: 100vh;
     padding: 5%;
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 const TimelineComponent = styled.div`
     width: 100%;
