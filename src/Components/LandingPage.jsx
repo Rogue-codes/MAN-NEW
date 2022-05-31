@@ -156,7 +156,7 @@ function LandingPage() {
           threshold={0.1}
           rootMargin="20%"
         >
-          Manufacturing Company of Nigeria
+          Manufacturers Association of Nigeria
         </AnimatedText>
         </span>
         <Text>
