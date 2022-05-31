@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import logo2 from '../Assets/history.jpeg'
 import logo3 from '../Assets/timelinebg.jpeg'
+import Footer from './Footer'
+import Nav from './Nav'
 import TimeLineComponent from './TimeLineComponent'
 
 const Container = styled.div`
@@ -69,6 +71,7 @@ const Container = styled.div`
 const HistoryContainer = styled.div`
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
 `
 const Paragraph = styled.p`
     @media (max-width:480px) {
@@ -99,10 +102,43 @@ const TimelineComponent = styled.div`
     -o-background-size:cover;
     background-position: 10% 50%;
 `
+const Mission = styled.div`
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20%;
+    flex-direction: column;
+    h1{
+        font-family: 'Lato', sans-serif;
+        margin-top: 5%;
+        font-size: 2vw;
+        font-weight: 900;
+    }
+    li{
+        margin-top: 2%;
+        margin-left: 2%;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.5vw;
+    }
+
+    p{
+        margin-top: 5%;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.5vw;
+        border-left: 11px solid #000;
+        line-height: 40px;
+        width: 95%;
+        padding-left: 2%;
+    }
+`
 function History() {
 
   return (
+      
     <HistoryContainer>
+        <Nav/>
         <Container>
             <h1>OUR HISTORY</h1>
         </Container>
@@ -124,6 +160,23 @@ function History() {
         <TimelineComponent>
             <TimeLineComponent/>
         </TimelineComponent>
+
+        <Mission>
+            <h1>OUR OBJECTIVES</h1>
+
+            <ul>
+                <li>Provide for manufacturers all over Nigeria the means of formulating, making known and influencing general policy in regard to industrial, labour, social, legal, training, and technical matters;</li>
+                <li>To develop and promote the contribution of manufacturers to the national economy through government and otherwise, whose work may affect directly or indirectly the interests of manufacturers;</li>
+                <li>To encourage a high standard of quality of members’ products through the collective and circulation of useful information and the provision of advice;</li>
+                <li>To encourage the patronage of members’ products by Nigerians and by consumers in foreign countries;</li>
+                <li>To communicate and liaise with kindred and other bodies, in the accomplishment of the objectives of the Association and on subjects of common interest.</li>
+            </ul>
+
+            <p>
+            By pursuing these objectives, the Association hopes that members would be helped to play their full part in creating wealth on which national economic prosperity and social progress depend. Overall, the task of MAN is that of helping to promote policies for a more stable and buoyant economy without which industry cannot be efficient and financially healthy. In order to do this, the Association endeavors to put across its viewpoints at national, state and local levels. Such viewpoints are the products of research and the collective experience of member companies. The basic philosophy of the Association is to ensure the well-being of its members on which the livelihood of their management, workers, customers and suppliers depends.
+            </p>
+        </Mission>
+        <Footer/>
     </HistoryContainer>
   )
 }
