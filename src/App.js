@@ -1,6 +1,7 @@
 import LandingPage from "./Components/LandingPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./Components/Home";
+import History from "./Components/History";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/history' element={<History/>}/>
         </Routes>
       </Router>
     </div>
