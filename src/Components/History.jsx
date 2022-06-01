@@ -7,6 +7,9 @@ import Nav from './Nav'
 import TimeLineComponent from './TimeLineComponent'
 
 const Container = styled.div`
+    @media (max-width:480px) {
+        height: 70vh;
+    }
     width: 100%;
     height: 80vh;
     background:  linear-gradient(90deg, #0e0215ca 0%, #170101cf 32%, #0f140dc9 100%),url(${logo2}) center fixed ;
@@ -83,6 +86,9 @@ const Paragraph = styled.p`
     font-family: 'Raleway', sans-serif;
 `
 const SecondContainer = styled.div`
+    @media (max-width:480px) {
+        height: auto;
+    }
     width: 100%;
     height: 100vh;
     padding: 5%;
@@ -111,12 +117,18 @@ const Mission = styled.div`
     gap: 20%;
     flex-direction: column;
     h1{
+        @media (max-width:480px) {
+            font-size: 2rem;
+        }
         font-family: 'Lato', sans-serif;
         margin-top: 5%;
         font-size: 2vw;
         font-weight: 900;
     }
     li{
+        @media (max-width:480px) {
+            font-size: 1.2rem;
+        }
         margin-top: 2%;
         margin-left: 2%;
         font-family: 'Raleway', sans-serif;
@@ -124,6 +136,9 @@ const Mission = styled.div`
     }
 
     p{
+        @media (max-width:480px) {
+            font-size: 1.2rem;
+        }
         margin-top: 5%;
         font-family: 'Raleway', sans-serif;
         font-size: 1.5vw;
