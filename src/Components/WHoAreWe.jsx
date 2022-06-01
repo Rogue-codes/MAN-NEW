@@ -95,7 +95,7 @@ const Card = styled.div`
         height: auto;
     }
     width: 30%;
-    height: 70vh;
+    height: 50vh;
     background: #ffe8d1;
     display: flex;
     margin-bottom: 5%;
