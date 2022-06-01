@@ -242,7 +242,7 @@ const Meet = styled.div`
     margin-top: 5%;
     margin-bottom: 5%;
     font-weight: 800;
-    color: #03030c;;
+    color: #03030c;
 `
 const ThirdSEction = styled.div`
     width: 100%;

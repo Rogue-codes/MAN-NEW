@@ -144,3 +144,18 @@
     font-size: 1.2rem;
   }
 }
+/* table */
+th{
+  font-family: 'Raleway', sans-serif; 
+}
+td{
+  font-family: 'Raleway', sans-serif;  
+}
+thead{
+  background: #03030c;
+}
+th{
+  width: 50%;
+  color:#fff;
+  border-right: 1px solid #fff;
+}
