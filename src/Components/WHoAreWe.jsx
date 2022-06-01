@@ -123,7 +123,7 @@ const Card = styled.div`
             font-size: 1.2rem;
         }
         text-align: center;
-        font-size: 2vw;
+        font-size: 1.2vw;
         font-weight: 900;
         font-family: 'Lato', sans-serif;
     }
@@ -132,9 +132,16 @@ const Card = styled.div`
             font-size: 1rem;
         }
         text-align: center;
-        font-size: 1.2vw;
+        font-size: 1vw;
         font-family: 'Lato', sans-serif;
         padding: 1%;
+    }
+    li{
+        @media (max-width:480px) {
+            font-size: 1rem;
+        }
+        font-size: 1vw;
+        font-family: 'Lato', sans-serif;
     }
     &:nth-child(2){
         background: #e9f5ff;
