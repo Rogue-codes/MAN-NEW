@@ -154,7 +154,7 @@ const Card = styled.div`
     padding: 2%;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background: #03030c;
+    background: #03030cc6;
     color: #fff;
     p{
     @media (max-width:480px) {

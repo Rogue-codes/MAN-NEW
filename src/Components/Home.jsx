@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import bg from '../Assets/bg.jpeg'
 import logo2 from '../Assets/l5.jpeg'
-import vec from '../Assets/vector.webp'
+import vec from '../Assets/vector.jpg'
 import map from '../Assets/map.jpeg'
 import AnimatedText from 'react-animated-text-content';
 import CarouselComponent from './CarouselComponent';
@@ -17,9 +17,12 @@ import Typicall from './Typicall'
 const Loader = styled.div`
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img{
-      height: 100%;
-      width: 100%;
+      height: 500px;
+      width: 500px;
       object-fit: contain;
     }
 `
